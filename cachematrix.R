@@ -1,7 +1,7 @@
 ## Set of two functions that calculates the inverse of a square matrix or directly returns the result if it was previously calculated
 
 
-###THE FUNCTION makeCacheMatrix will set the functions "set","get","setinversion", "getinversion" for a squeare matrix(matrix)
+###THE FUNCTION makeCacheMatrix will set the functions "set","get","setinversion", "getinversion" for a squeare matrix(m)
 
 makeCacheMatrix <- function(m= matrix()){
         inverse<- NULL
