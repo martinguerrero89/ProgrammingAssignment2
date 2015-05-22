@@ -30,3 +30,21 @@ cacheSolve <- function(x, ...) {
         x$setinversion(inverse)         # Once "inverse" is calculeted call the function "setinversion" from x (makeCacheMatrix) that is going to assing this value to the enviroment of the function
         inverse
 }
+
+### THIS IS AN EXAMPLE
+
+#a <- makeCacheMatrix( matrix(rnorm(4), nrow = 2, ncol = 2) );
+#a$get();
+#       [,1]        [,2]
+#[1,] 0.2390467 -0.01198477
+#[2,] 0.4257483 -0.04955568
+# cacheSolve(a)
+#       [,1]     [,2]
+#[1,]  7.34852  -1.7772
+#[2,] 63.13342 -35.4478
+#cacheSolve(a);
+#"getting cached inversed matrix"
+#       [,1]     [,2]
+#[1,]  7.34852  -1.7772
+#[2,] 63.13342 -35.4478
+> 
