@@ -3,22 +3,22 @@
 
 ###THE FUNCTION makeCacheMatrix will set the functions "set","get","setinversion", "getinversion" for a squeare matrix(matrix)
 
-makeCacheMatrix <- function(matrix= matrix()){
+makeCacheMatrix <- function(m= matrix()){
         inverse<- NULL
         set <- function(y){             # this function "sets" the matrix (y) we are going to work with, even though we don't use this function in the example we can use it to call it later...
-                matrix<<-y                      # The argument "y" is set to "matrix" and is assigned to the parent enviorment of the function at a higher level
+                m<<-y                      # The argument "y" is set to "m" and is assigned to the parent enviorment of the function at a higher level
                 inverse<<- NULL
         }
-        get <- function() matrix        #HERE "matrix" is called from the parent function and is assigned to the function "get"
+        get <- function() m        #HERE "m" is called from the parent function and is assigned to the function "get"
         setinversion <- function(inv) inverse <<- inv   # The argument "inv" of the function is set to "inverse" and is cached to the parent enviorment of the function
         getinversion <- function() inverse              #Call the argument "inverse" from the parent enviorment.
-        list(set = set, get = get,... =         #Lists the functions "set", "get", "setinversion" and "getinversion" that are going to be used in the next function
-                     setinversion = setinversion,
-             getinversion = getinversion)
+        list(set = set, get = get,          #Lists the functions "set", "get", "setinversion" and "getinversion" that are going to be used in the next function
+                setinversion = setinversion,
+                        getinversion = getinversion)
 }
 
 
-### THIS FUNCTION returns a matrix that is the inverse of "matrix" (previously used in the function makeCacheMatrix(matrix))
+### THIS FUNCTION returns a matrix that is the inverse of "m" (previously used in the function makeCacheMatrix(m))
 cacheSolve <- function(x, ...) {
         inverse <- x$getinversion()                             #Assign the "getinversion" function from the function x ("makeCacheMatrix" in this case) to the object "inverse"
         if(!is.null(inverse)) {                                 # If "Inverse" was previously calculated get the value of it and send the message "getting cached inversed matrix"
